@@ -1,17 +1,23 @@
 package org.example;
 public interface Stock {
 
-    public void addBook(Book b);
-    public void removeBook(Book b);
-    public void findBook(String Name);
+    public void addBook();
+    public void removeBook();
+    public void findBookByName();
 
-    public void findBook(float cost);
+    public void UpdateBook();
 
-    public void findBook(float low, float high);
-
-    public void findCheapestBook();
-
-    public void findCostlyBook();
+    public void findBookByAuthorName();
+//
+//    public void findBookByCategoryName();
+//
+//    public void findBookByCost();
+//
+//    public void findBookByRangeCost();
+//
+//    public void findCheapestBook();
+//
+//    public void findCostlyBook();
 
 }
 

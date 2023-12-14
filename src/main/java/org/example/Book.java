@@ -1,29 +1,37 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class Book {
 
-
+    int book_id;
     String name;
     String authorName;
     float price;
     String category;
+    java.sql.Date date;
 
-    BufferedReader buff;
-    InputStreamReader isr;
+    public Book(){
 
-    public Book(String name, String authorName, float price, String category) {
-        this.name = name;
-        this.authorName = authorName;
-        this.price = price;
-        this.category = category;
     }
 
-    public Book(BufferedReader buff, InputStreamReader isr){
-        this.buff = buff;
-        this.isr = isr;
+
+    public int getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(int book_id) {
+        this.book_id = book_id;
+    }
+
+
+    public java.sql.Date getDate() {
+        return date;
+    }
+
+    public void setDate(java.sql.Date date) {
+        this.date = date;
     }
 
     public String getName() {
