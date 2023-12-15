@@ -7,7 +7,15 @@ public interface Stock {
 
     public void UpdateBook();
 
+    public void findCostRange();
     public void findBookByAuthorName();
+
+    public void find2yrOldBook();
+
+    public void findCostliestBook();
+
+    public void findCheapestBook();
+
 //
 //    public void findBookByCategoryName();
 //

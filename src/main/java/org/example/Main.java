@@ -36,9 +36,8 @@ public class Main {
 
             while (true) {
 
-                System.out.println("Please Select Your Operation\n1. Add Book\n2. Remove Book\n3. Find By Book Name\n4. Find By Author Name\n5. Update the Book");
+                System.out.println("Please Select Your Operation\n1. Add Book\n2. Remove Book\n3. Find By Book Name\n4. Find By Author Name\n5. Update the Book\n6. Find by Book given in the range\n7. Find Cheapest Book\n8. Find Most Costliest Book\n9. Find Book 2 year old Book\n10. Remove 2yr old Books.");
                 try {
-
                     obj.select_Operation = Integer.parseInt(obj.buff.readLine());
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -61,21 +60,17 @@ public class Main {
                     case 5:
                         st.UpdateBook();
                         break;
+                    case 6: st.findCostRange();
+                           break;
+                    case 7: st.findCheapestBook();
+                            break;
+                    case 8: st.findCostliestBook();
+                            break;
+                    case 9: st.find2yrOldBook();
+                            break;
+                    case 10: st.remove2yrOldBook();
+                             break;
 
-
-//
-//                    case 5:
-//                        System.out.println("Enter the price of the book: ");
-//                        try {
-//                            float price = Integer.parseInt(obj.buff.readLine());
-//                            obj.st.findBook(price);
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                        break;
-//
-//                    default:
-//                        break;
                 }
                 System.out.println("Do you want to Continue ? yes/no");
                 try {
