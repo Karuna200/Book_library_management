@@ -49,6 +49,7 @@ public class Library<SimpleDateFormat> implements Stock {
             e.printStackTrace();
         }
 
+
     }
 
     @Override
@@ -143,6 +144,7 @@ public class Library<SimpleDateFormat> implements Stock {
     @Override
     public void UpdateBook(){
         BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the details you want to update!!");
         try {
             // Get book details to update
             System.out.println("Enter the Book ID to update: ");
@@ -182,7 +184,6 @@ public class Library<SimpleDateFormat> implements Stock {
         } catch (IOException | SQLException | NumberFormatException e) {
             e.printStackTrace();
         }
-
         try {
             mConnection.close();
         }catch (SQLException e){
@@ -279,6 +280,8 @@ public class Library<SimpleDateFormat> implements Stock {
           e.printStackTrace();
       }
     }
+
+    @Override
     public void remove2yrOldBook(){
       try{
           String query = "delete from book_details where DateDiff(Now(),date) >=750";
@@ -288,5 +291,60 @@ public class Library<SimpleDateFormat> implements Stock {
           e.printStackTrace();
       }
     }
+
+    @Override
+    public void findBookByCost(){
+        BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+        try{
+            System.out.println("Enter the price: ");
+            float x = Float.parseFloat(buff.readLine());
+            String query = "Select book_name from book_details where price = ?";
+            ptsmt = mConnection.prepareStatement(query);
+            ptsmt.setFloat(1,x);
+            ResultSet rs = ptsmt.executeQuery();
+            boolean flg = false;
+            while(rs.next()){
+                flg = true;
+                Book book = new Book();
+                book.setName(rs.getString("book_name"));
+                System.out.println(book.getName());
+            }
+            if(!flg){
+                System.out.println("Sorry, No book found for this cost.");
+            }
+
+        }catch (SQLException | IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void findBookByCategory(){
+        BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+        try{
+            System.out.println("Enter the Category: ");
+            String x = buff.readLine();
+            String query = "Select book_name from book_details where Category = ?";
+            ptsmt = mConnection.prepareStatement(query);
+            ptsmt.setString(1,x);
+            ResultSet rs = ptsmt.executeQuery();
+            boolean flg = false;
+            while(rs.next()){
+                flg = true;
+                Book book = new Book();
+                book.setName(rs.getString("book_name"));
+                System.out.println(book.getName());
+            }
+            if(!flg){
+                System.out.println("Sorry, No book found for this category.");
+            }
+
+        }catch (SQLException | IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
 

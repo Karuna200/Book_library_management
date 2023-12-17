@@ -36,7 +36,7 @@ public class Main {
 
             while (true) {
 
-                System.out.println("Please Select Your Operation\n1. Add Book\n2. Remove Book\n3. Find By Book Name\n4. Find By Author Name\n5. Update the Book\n6. Find by Book given in the range\n7. Find Cheapest Book\n8. Find Most Costliest Book\n9. Find Book 2 year old Book\n10. Remove 2yr old Books.");
+                System.out.println("Please Select Your Operation\n1. Add Book\n2. Remove Book\n3. Find By Book Name\n4. Find By Author Name\n5. Update the Book \n6. Find Book by Cost. \n7. Find Book by Category. \n8. Find by Book given in the range\n9. Find Cheapest Book\n10. Find Most Costliest Book\n11. Find Book 2 year old Book\n12. Remove 2yr old Books.");
                 try {
                     obj.select_Operation = Integer.parseInt(obj.buff.readLine());
                 } catch (IOException e) {
@@ -53,22 +53,25 @@ public class Main {
                     case 3:
                         st.findBookByName();
                         break;
-
                     case 4:
                         st.findBookByAuthorName();
                         break;
                     case 5:
                         st.UpdateBook();
                         break;
-                    case 6: st.findCostRange();
+                    case 6: st.findBookByCost();
+                             break;
+                    case 7: st.findBookByCategory();
+                            break;
+                    case 8: st.findCostRange();
                            break;
-                    case 7: st.findCheapestBook();
+                    case 9: st.findCheapestBook();
                             break;
-                    case 8: st.findCostliestBook();
+                    case 10: st.findCostliestBook();
                             break;
-                    case 9: st.find2yrOldBook();
+                    case 11: st.find2yrOldBook();
                             break;
-                    case 10: st.remove2yrOldBook();
+                    case 12: st.remove2yrOldBook();
                              break;
 
                 }
